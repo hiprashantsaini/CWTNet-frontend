@@ -1,0 +1,55 @@
+/* Updated settings.css with theme contrast */
+:root {
+    --background-light: #f8f9fa;
+    --text-light: #000000;
+    --background-dark: #121212;
+    --text-dark: #ffffff;
+    --border-light: #ddd;
+    --border-dark: #555;
+}
+
+[data-theme="light"] {
+    --background: var(--background-light);
+    --text: var(--text-light);
+    --border: var(--border-light);
+}
+
+[data-theme="dark"] {
+    --background: var(--background-dark);
+    --text: var(--text-dark);
+    --border: var(--border-dark);
+}
+
+.settings-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background: var(--background);
+    color: var(--text);
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s, color 0.3s;
+}
+
+.settings-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid var(--border);
+}
+
+.settings-item label {
+    font-size: 18px;
+    color: var(--text);
+}
+
+.theme-toggle-btn {
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    user-select: none;
+}
