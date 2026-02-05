@@ -14,7 +14,7 @@ const Education = ({user,isOwnProfile}) => {
 
     const getEducations = async () => {
         try {
-            const res = await axios.get(`http://localhost:5000/api/v1/education/${user._id}`, { withCredentials: true });
+            const res = await axios.get(`https://cwt-net-backend.vercel.app/api/v1/education/${user._id}`, { withCredentials: true });
             if (res) {
                 setEducation(res.data.educations);
             }
@@ -61,7 +61,7 @@ const Education = ({user,isOwnProfile}) => {
 
         try {
             setLoading(true);
-            let res = await axios.delete(`http://localhost:5000/api/v1/education/${edu._id}`, { withCredentials: true });
+            let res = await axios.delete(`https://cwt-net-backend.vercel.app/api/v1/education/${edu._id}`, { withCredentials: true });
             if (res) {
                 toast.success(res.data?.message);
                 setLoading(false);

@@ -46,13 +46,13 @@ const AddEditSkill = ({ isOpen, setIsOpen, initialData, onSave, action }) => {
       
       if (action === 'add') {
         res = await axios.post(
-          "http://localhost:5000/api/v1/skill/add",
+          "https://cwt-net-backend.vercel.app/api/v1/skill/add",
           formData,
           { withCredentials: true }
         );
       } else if (action === 'update') {
         res = await axios.put(
-          `http://localhost:5000/api/v1/skill/update/${initialData._id}`,
+          `https://cwt-net-backend.vercel.app/api/v1/skill/update/${initialData._id}`,
           formData,
           { withCredentials: true }
         );

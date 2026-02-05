@@ -16,7 +16,7 @@ const ResetPassword = () => {
     try {
       if (!email.trim()) return toast('Please enter your email');
       setIsloading(true);
-      const res = await axios.post("http://localhost:5000/api/v1/auth/sendOtp", { email: email }, { withCredentials: true });
+      const res = await axios.post("https://cwt-net-backend.vercel.app/api/v1/auth/sendOtp", { email: email }, { withCredentials: true });
       if (res) {
         toast.success(res.data.message);
         setSentOtp(true);
@@ -35,7 +35,7 @@ const ResetPassword = () => {
     if(!newPassword) return toast.error('Invalid password');
     try {
       setIsloading(true);
-      const res=await axios.post("http://localhost:5000/api/v1/auth/resetPassword",{email,otp,newPassword},{withCredentials:true});
+      const res=await axios.post("https://cwt-net-backend.vercel.app/api/v1/auth/resetPassword",{email,otp,newPassword},{withCredentials:true});
       if(res){
          toast.success(res.data.message);
          navigate('/login');

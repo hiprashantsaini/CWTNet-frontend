@@ -9,7 +9,7 @@ const Posts = ({ user }) => {
     const [visiblePosts, setVisiblePosts] = useState(2);
     const getPosts=async()=>{
         try {
-            const res=await axios.get(`http://localhost:5000/api/v1/posts/posts/${user._id}`,{withCredentials:true});
+            const res=await axios.get(`https://cwt-net-backend.vercel.app/api/v1/posts/posts/${user._id}`,{withCredentials:true});
             if(res && res.data.posts){
                 setPosts(res.data.posts);
             }

@@ -15,7 +15,7 @@ const Skill = ({user,isOwnProfile}) => {
   const getSkills = async () => {
     try {
       setIsLoading(true);
-      const res = await axios.get(`http://localhost:5000/api/v1/skill/${user._id}`, { 
+      const res = await axios.get(`https://cwt-net-backend.vercel.app/api/v1/skill/${user._id}`, { 
         withCredentials: true 
       });
       if (res.data?.skills) {
@@ -60,7 +60,7 @@ const Skill = ({user,isOwnProfile}) => {
 
     try {
       setIsLoading(true);
-      const res = await axios.delete(`http://localhost:5000/api/v1/skill/${skill._id}`, {
+      const res = await axios.delete(`https://cwt-net-backend.vercel.app/api/v1/skill/${skill._id}`, {
         withCredentials: true
       });
       if (res.data) {

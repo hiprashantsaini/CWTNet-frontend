@@ -1,24 +1,24 @@
 import axios from 'axios';
 import {
-  ArrowLeft,
-  Bell,
-  Briefcase,
-  Building,
-  CheckCircle,
-  ChevronDown,
-  Clock,
-  ExternalLink,
-  Filter,
-  Grid,
-  Laptop,
-  MapPin,
-  Maximize2,
-  Menu,
-  MessageSquare,
-  RefreshCw,
-  Search,
-  Star,
-  X
+    ArrowLeft,
+    Bell,
+    Briefcase,
+    Building,
+    CheckCircle,
+    ChevronDown,
+    Clock,
+    ExternalLink,
+    Filter,
+    Grid,
+    Laptop,
+    MapPin,
+    Maximize2,
+    Menu,
+    MessageSquare,
+    RefreshCw,
+    Search,
+    Star,
+    X
 } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 
@@ -431,7 +431,7 @@ function Internship() {
 
   const getAllInternships = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/v1/internship", { withCredentials: true });
+      const res = await axios.get("https://cwt-net-backend.vercel.app/api/v1/internship", { withCredentials: true });
       if (res.data?.internships) {
         setInternships(res.data?.internships);
       }

@@ -27,7 +27,7 @@ const EventDetail = () => {
   const getEventDetail = async () => {
     try {
       setIsLoading(true);
-      const res = await axios.get(`http://localhost:5000/api/v1/events/detail/${eventId}`, {
+      const res = await axios.get(`https://cwt-net-backend.vercel.app/api/v1/events/detail/${eventId}`, {
         withCredentials: true,
       });
       if (res) {
@@ -45,7 +45,7 @@ const EventDetail = () => {
 
   const joinEvent=async(eventId,status)=>{
     try { //if want to join =>status:true otherwise status:false
-      const res=await axios.post(`http://localhost:5000/api/v1/events/join/${eventId}`,{status},{withCredentials:true});
+      const res=await axios.post(`https://cwt-net-backend.vercel.app/api/v1/events/join/${eventId}`,{status},{withCredentials:true});
       if(res){
         toast.success(res.data?.message);
         if(status){

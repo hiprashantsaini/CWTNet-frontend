@@ -13,7 +13,7 @@ const Experience = ({user,isOwnProfile}) => {
 
     const getExperiences = async () => {
         try {
-            const res = await axios.get(`http://localhost:5000/api/v1/experience/${user._id}`, { withCredentials: true });
+            const res = await axios.get(`https://cwt-net-backend.vercel.app/api/v1/experience/${user._id}`, { withCredentials: true });
             setExperiences(res.data.experiences || []);
         } catch (error) {
             console.error("Error fetching experiences:", error);
@@ -53,7 +53,7 @@ const Experience = ({user,isOwnProfile}) => {
 
         try {
             setLoading(true);
-            await axios.delete(`http://localhost:5000/api/v1/experience/${exp._id}`, { withCredentials: true });
+            await axios.delete(`https://cwt-net-backend.vercel.app/api/v1/experience/${exp._id}`, { withCredentials: true });
             toast.success("Experience deleted successfully");
             getExperiences();
         } catch (error) {

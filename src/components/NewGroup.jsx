@@ -35,7 +35,7 @@ const NewGroup = ({ connections, setOpenNewGroupSelector }) => {
 
     try {
       const userIds = selectedUsers.map(user => user._id);
-      const response = await axios.post('http://localhost:5000/api/v1/chat/createGroup', {
+      const response = await axios.post('https://cwt-net-backend.vercel.app/api/v1/chat/createGroup', {
         name: groupName,
         users: userIds
       }, { withCredentials: true });

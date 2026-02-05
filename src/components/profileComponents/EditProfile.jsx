@@ -27,7 +27,7 @@ const EditProfile = ({ userData, onClose }) => {
     try {
         setUpdating(true);
         if(!formData.name || formData.name==='') return toast.error("Name field is required");
-        const res=await axios.post("http://localhost:5000/api/v1/users/updateProfile",formData,{withCredentials:true});
+        const res=await axios.post("https://cwt-net-backend.vercel.app/api/v1/users/updateProfile",formData,{withCredentials:true});
         if(res){
             toast.success(res.data.message);
             queryClient.invalidateQueries({ queryKey: ["authUser"] });

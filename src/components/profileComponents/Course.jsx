@@ -15,7 +15,7 @@ const Course = ({ user, isOwnProfile }) => {
     const getCourses = async () => {
         try {
             setLoading(true);
-            const res = await axios.get(`http://localhost:5000/api/v1/course/${user._id}`, { withCredentials: true });
+            const res = await axios.get(`https://cwt-net-backend.vercel.app/api/v1/course/${user._id}`, { withCredentials: true });
             setCourses(res.data.courses || []);
         } catch (error) {
             console.error("Error fetching courses:", error);
@@ -65,7 +65,7 @@ const Course = ({ user, isOwnProfile }) => {
 
         try {
             setLoading(true);
-            await axios.delete(`http://localhost:5000/api/v1/course/${course._id}`, { withCredentials: true });
+            await axios.delete(`https://cwt-net-backend.vercel.app/api/v1/course/${course._id}`, { withCredentials: true });
             toast.success("Course deleted successfully");
             getCourses();
         } catch (error) {

@@ -15,7 +15,7 @@ const InternshipProfile = ({ user, isOwnProfile }) => {
   const getInternship = async () => {
     try {
       setLoading(true);
-      const res = await axios.get(`http://localhost:5000/api/v1/internship/user/${user._id}`, { withCredentials: true });
+      const res = await axios.get(`https://cwt-net-backend.vercel.app/api/v1/internship/user/${user._id}`, { withCredentials: true });
       if (res.data) {
         setInternship(res.data.internships);
       }
@@ -103,7 +103,7 @@ const InternshipCard = ({ internship, isOwnProfile, refreshList, setIsOpen, setI
     if (!result.isConfirmed) return;
     try {
       setLoadingId(internship._id)
-      await axios.delete(`http://localhost:5000/api/v1/internship/${internship._id}`, { withCredentials: true });
+      await axios.delete(`https://cwt-net-backend.vercel.app/api/v1/internship/${internship._id}`, { withCredentials: true });
       refreshList();
     } catch (error) {
       console.log("error:", error);

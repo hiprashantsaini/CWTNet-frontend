@@ -1,15 +1,15 @@
 
 import axios from 'axios';
 import {
-  Calendar,
-  Clock,
-  FileText,
-  Globe,
-  ImagePlus,
-  Link,
-  Loader2Icon,
-  User,
-  X
+    Calendar,
+    Clock,
+    FileText,
+    Globe,
+    ImagePlus,
+    Link,
+    Loader2Icon,
+    User,
+    X
 } from 'lucide-react';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
@@ -93,7 +93,7 @@ const AddEvent = ({onClose,addNewEvent,eventData, setEventData,eventStatus}) => 
     }
     try {
       setWorking(true);
-      const res=await axios.post(`http://localhost:5000/api/v1/events/${eventStatus}`,eventData,{withCredentials:true});
+      const res=await axios.post(`https://cwt-net-backend.vercel.app/api/v1/events/${eventStatus}`,eventData,{withCredentials:true});
       if(res){    
         addNewEvent(res.data.event);
         toast.success(res.data.message);

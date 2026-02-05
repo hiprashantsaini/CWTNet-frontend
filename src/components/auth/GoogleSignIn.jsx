@@ -10,7 +10,7 @@ const GoogleSignIn = () => {
     const queryClient = useQueryClient();
     const handleGoogleSuccess = async (credentialResponse) => {
         try {
-            const res = await axios.post("http://localhost:5000/api/v1/auth/google-signin", {
+            const res = await axios.post("https://cwt-net-backend.vercel.app/api/v1/auth/google-signin", {
                 token: credentialResponse.credential,
                 type: type, // Or "Provider" (send based on user type)
             }, { withCredentials: true });

@@ -352,9 +352,9 @@ const handleRemoveImage = () => {
     try {
       let res;
       if (isEdit) {
-        res = await axios.patch(`http://localhost:5000/api/v1/course/${initialData._id}`, finalData, { withCredentials: true });
+        res = await axios.patch(`https://cwt-net-backend.vercel.app/api/v1/course/${initialData._id}`, finalData, { withCredentials: true });
       } else {
-        res = await axios.post("http://localhost:5000/api/v1/course/add", finalData, { withCredentials: true });
+        res = await axios.post("https://cwt-net-backend.vercel.app/api/v1/course/add", finalData, { withCredentials: true });
       }
       
       if (res?.data) {

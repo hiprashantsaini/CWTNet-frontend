@@ -200,9 +200,9 @@ const AddEditCertificate = ({ isOpen, onClose, initialData = null , onSave}) => 
 
             let res;
             if(isEdit){
-                res = await axios.post(`http://localhost:5000/api/v1/certificate/update/${initialData._id}`, formData, {withCredentials: true});
+                res = await axios.post(`https://cwt-net-backend.vercel.app/api/v1/certificate/update/${initialData._id}`, formData, {withCredentials: true});
             }else{
-               res = await axios.post("http://localhost:5000/api/v1/certificate/add", formData, {withCredentials: true});
+               res = await axios.post("https://cwt-net-backend.vercel.app/api/v1/certificate/add", formData, {withCredentials: true});
             }
             if (res?.data) {
                 toast.success(res.data.message);

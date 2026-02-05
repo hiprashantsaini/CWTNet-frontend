@@ -92,9 +92,9 @@ const AddEditInternship = ({ isOpen, onClose, initialData }) => {
                 setLoading(true);
                 let res;
                 if(initialData){
-                 res = await axios.put(`http://localhost:5000/api/v1/internship/${initialData._id}`, formData, { withCredentials: true });
+                 res = await axios.put(`https://cwt-net-backend.vercel.app/api/v1/internship/${initialData._id}`, formData, { withCredentials: true });
                 }else{
-                 res = await axios.post("http://localhost:5000/api/v1/internship", formData, { withCredentials: true });
+                 res = await axios.post("https://cwt-net-backend.vercel.app/api/v1/internship", formData, { withCredentials: true });
                 }
                 if (res.data) {
                     toast.success(res.data.message);

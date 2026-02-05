@@ -84,9 +84,9 @@ const AddEditEducation = ({ isOpen, setIsOpen, initialData, onSave,action }) => 
         setLoading(true);
         let res;
         if(action==='add'){
-          res=await axios.post("http://localhost:5000/api/v1/education/add",{...formData,activities:cleanedActivities},{withCredentials:true});
+          res=await axios.post("https://cwt-net-backend.vercel.app/api/v1/education/add",{...formData,activities:cleanedActivities},{withCredentials:true});
         }else if(action==='update'){
-        res=await axios.put(`http://localhost:5000/api/v1/education/update/${initialData._id}`,{...formData,activities:cleanedActivities},{withCredentials:true});
+        res=await axios.put(`https://cwt-net-backend.vercel.app/api/v1/education/update/${initialData._id}`,{...formData,activities:cleanedActivities},{withCredentials:true});
         }
         if(res){
             toast.success(res.data?.message);

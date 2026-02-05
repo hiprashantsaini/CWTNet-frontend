@@ -29,7 +29,7 @@ const Events = () => {
 
   const getAllEvents=async()=>{
     try {
-      const res=await axios.get('http://localhost:5000/api/v1/events/all',{withCredentials:true});
+      const res=await axios.get('https://cwt-net-backend.vercel.app/api/v1/events/all',{withCredentials:true});
       if(res){
         setAllEvents(res.data?.events);
       }
@@ -53,7 +53,7 @@ const Events = () => {
 
   const deleteEvent=async(eventId)=>{
     try {
-      const res=await axios.delete(`http://localhost:5000/api/v1/events/delete/${eventId}`,{withCredentials:true});
+      const res=await axios.delete(`https://cwt-net-backend.vercel.app/api/v1/events/delete/${eventId}`,{withCredentials:true});
       if(res){
         toast.success(res.data?.message);
         const data=allEvents.filter((event)=>event._id !==eventId);
@@ -69,7 +69,7 @@ const Events = () => {
 
   const joinEvent=async(eventId,status)=>{
     try { //if want to join =>status:true otherwise status:false
-      const res=await axios.post(`http://localhost:5000/api/v1/events/join/${eventId}`,{status},{withCredentials:true});
+      const res=await axios.post(`https://cwt-net-backend.vercel.app/api/v1/events/join/${eventId}`,{status},{withCredentials:true});
       if(res){
         toast.success(res.data?.message);
         const index=allEvents.findIndex((event)=>event._id ===eventId);

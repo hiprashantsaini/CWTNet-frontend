@@ -65,7 +65,7 @@ const MessageRoom = () => {
       const usersData = activeChat?.users?.map((item) => ({ _id: item._id, name: item.name }));
 
       if(!editingMessage){
-        const res = await axios.post('http://localhost:5000/api/v1/message/add', {
+        const res = await axios.post('https://cwt-net-backend.vercel.app/api/v1/message/add', {
           msgtext: message,
           chatId: activeChat._id,
           users: usersData
@@ -74,7 +74,7 @@ const MessageRoom = () => {
           setActiveMessages((prev) => [...prev, res.data?.message]);
         }
       }else{
-        const res = await axios.post('http://localhost:5000/api/v1/message/update', {
+        const res = await axios.post('https://cwt-net-backend.vercel.app/api/v1/message/update', {
           msgtext: message,
           msgId: editingMessage._id,
           users: usersData
@@ -97,7 +97,7 @@ const MessageRoom = () => {
   const handleDeleteMessage=async(msgId)=>{
      try {
       const usersData = activeChat?.users?.map((item) => ({ _id: item._id, name: item.name }));
-      const res = await axios.post(`http://localhost:5000/api/v1/message/delete/${msgId}`,{ chatId: activeChat._id,users: usersData}, { withCredentials: true });
+      const res = await axios.post(`https://cwt-net-backend.vercel.app/api/v1/message/delete/${msgId}`,{ chatId: activeChat._id,users: usersData}, { withCredentials: true });
       if (res) {
         const data=activeMessages.filter((msg)=>msg._id !== msgId)
         setActiveMessages(data);
@@ -110,7 +110,7 @@ const MessageRoom = () => {
   const handleStartChat = async (connection) => {
     setSelectedUser(connection);
     try {
-      const res = await axios.post('http://localhost:5000/api/v1/chat', {
+      const res = await axios.post('https://cwt-net-backend.vercel.app/api/v1/chat', {
         userId: connection._id
       }, { withCredentials: true });
 
@@ -140,7 +140,7 @@ const MessageRoom = () => {
 
   const getAllGroups = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/v1/chat/allChats', { withCredentials: true });
+      const res = await axios.get('https://cwt-net-backend.vercel.app/api/v1/chat/allChats', { withCredentials: true });
       const groups = res.data?.chats?.filter((item) => item.isGroupChat);
       setChatGroups(groups);
     } catch (error) {
@@ -150,7 +150,7 @@ const MessageRoom = () => {
 
   const getOnlineConnections = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/v1/connections/onlineConnection', { withCredentials: true });
+      const res = await axios.get('https://cwt-net-backend.vercel.app/api/v1/connections/onlineConnection', { withCredentials: true });
       setOnlineUsers(res.data?.onlineUsers);
     } catch (error) {
       console.log("getOnlineConnections error :", error);

@@ -25,7 +25,7 @@ const MessagesList= () => {
 
   const getLatestMessages=async()=>{
     try {
-        const res=await axios.get("http://localhost:5000/api/v1/message/latestMessages",{withCredentials:true});
+        const res=await axios.get("https://cwt-net-backend.vercel.app/api/v1/message/latestMessages",{withCredentials:true});
         const msgData=res.data?.chats?.map((chat)=>chat.latestMessage)
         setMessages(msgData);
     } catch (error) {

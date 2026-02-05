@@ -15,7 +15,7 @@ const Certificate = ({user,isOwnProfile}) => {
 
     const getCertificates = async () => {
         try {
-            const res = await axios.get(`http://localhost:5000/api/v1/certificate/${user._id}`, { withCredentials: true });
+            const res = await axios.get(`https://cwt-net-backend.vercel.app/api/v1/certificate/${user._id}`, { withCredentials: true });
             if (res) {
                 setCertificates(res.data.certificates);
             }
@@ -81,7 +81,7 @@ const Certificate = ({user,isOwnProfile}) => {
 
         try {
             setLoading(true);
-            let res = await axios.delete(`http://localhost:5000/api/v1/certificate/${cert._id}`, { withCredentials: true });
+            let res = await axios.delete(`https://cwt-net-backend.vercel.app/api/v1/certificate/${cert._id}`, { withCredentials: true });
             if (res) {
                 console.log("Deleted certificate:", res);
                 toast.success(res.data?.message);
