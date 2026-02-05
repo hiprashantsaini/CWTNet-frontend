@@ -3,6 +3,7 @@ import Layout from "./components/layout/Layout";
 
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { useQuery } from "@tanstack/react-query";
+import { Loader } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
 import AIGuru from "./aiGuru/AIGuru";
 import Home from "./aiGuru/home/Home";
@@ -49,7 +50,7 @@ function App() {
 		},
 	});
 
-	if (isLoading) return null;
+	if (isLoading) return <div className="flex justify-center items-center min-h-screen"><Loader className="animate-spin" /></div>;
 
 	return (
 		<>
