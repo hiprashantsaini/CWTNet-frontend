@@ -1,24 +1,24 @@
 import axios from 'axios';
 import {
-    ArrowLeft,
-    Bell,
-    Briefcase,
-    Building,
-    CheckCircle,
-    ChevronDown,
-    Clock,
-    ExternalLink,
-    Filter,
-    Grid,
-    Laptop,
-    MapPin,
-    Maximize2,
-    Menu,
-    MessageSquare,
-    RefreshCw,
-    Search,
-    Star,
-    X
+  ArrowLeft,
+  Bell,
+  Briefcase,
+  Building,
+  CheckCircle,
+  ChevronDown,
+  Clock,
+  ExternalLink,
+  Filter,
+  Grid,
+  Laptop,
+  MapPin,
+  Maximize2,
+  Menu,
+  MessageSquare,
+  RefreshCw,
+  Search,
+  Star,
+  X
 } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 
@@ -490,21 +490,19 @@ function Internship() {
       {/* Navigation */}
       <nav className="bg-white border-b border-gray-300 py-2">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between">
-            {/* <div className="flex items-center">
-              <LinkedinIcon className="text-blue-600" size={36} />
-               */}
-            <div className="relative ml-2 flex items-center bg-gray-100 rounded-md">
-              <div className="px-3 py-2">
-                <Search size={20} className="text-gray-500" />
+          <div className="flex flex-col md:flex-row md:items-center gap-2 md:justify-between">
+            <div className="relative md:ml-2 flex items-center rounded-md">
+              <div className="relative ml-2 flex items-center bg-gray-100 rounded-md">
+                <div className="px-3 py-2">
+                  <Search size={20} className="text-gray-500" />
+                </div>
+                <input
+                  type="text"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="bg-transparent py-2 pr-3 w-[40%] md:w-64 focus:outline-none bg-gray-100"
+                />
               </div>
-              <input
-                type="text"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="bg-transparent py-2 pr-3 w-64 focus:outline-none"
-              />
-              {/* </div> */}
 
               <div className="relative ml-2 flex items-center bg-gray-100 rounded-md">
                 <div className="px-3 py-2">
@@ -514,7 +512,7 @@ function Internship() {
                   type="text"
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}
-                  className="bg-transparent py-2 pr-3 w-64 focus:outline-none"
+                  className="bg-transparent py-2 pr-3 w-[40%] md:w-64 focus:outline-none"
                 />
               </div>
 
@@ -620,7 +618,7 @@ function Internship() {
       {/* Filters */}
       <div className="bg-white border-b border-gray-300 py-3">
         <div className="container mx-auto px-4">
-          <div className="flex items-center space-x-3 overflow-x-auto pb-2">
+          <div className="flex flex-wrap items-center md:space-x-3 gap-2 pb-2">
             <div className="relative" onClick={(e) => e.stopPropagation()}>
               <button
                 className="px-4 py-2 bg-green-700 text-white rounded-md flex items-center whitespace-nowrap"
@@ -873,7 +871,7 @@ function Internship() {
           </div>
 
           {/* Right Column - Job Details */}
-{     internships.length > 0 && <div className="w-full md:w-1/2 md:ml-4 bg-white border border-gray-300 rounded-md overflow-hidden">
+          {internships.length > 0 && <div className="w-full md:w-1/2 md:ml-4 bg-white border border-gray-300 rounded-md overflow-hidden">
             <div className="p-4">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center">
